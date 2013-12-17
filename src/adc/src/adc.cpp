@@ -161,7 +161,7 @@ int main(int argc, char **argv)
   // IMU message
   sensor_msgs::Imu imu,imu_2;
   sensor_msgs::Range range;
-  boost::circular_buffer<float> calibration0(140),calibration1(140),calibration2(140),calibration3(140),calibration4(140),calibration5(140),calibration6(140),calibration7(140),calibration8(140),range1(6),range2(6),range3(6),range4(6),pitch1(400),pitch2(400),pitch3(400),pitch4(400),x(50),y(50),z(50),ax(50),ay(50),az(50),ax2(50),ay2(50),az2(50),calib_sosp0(140),calib_sosp1(140),calib_sosp2(140),calib_sosp3(140),calib_sosp4(140),calib_sosp5(140),calib_sosp6(140),calib_sosp7(140);
+  boost::circular_buffer<float> calibration0(140),calibration1(140),calibration2(140),calibration3(140),calibration4(140),calibration5(140),calibration6(140),calibration7(140),calibration8(140),range1(5),range2(5),range3(5),range4(5),pitch1(50),pitch2(50),pitch3(50),pitch4(10),x(10),y(10),z(10),ax(10),ay(10),az(10),ax2(10),ay2(10),az2(10),calib_sosp0(140),calib_sosp1(140),calib_sosp2(140),calib_sosp3(140),calib_sosp4(140),calib_sosp5(140),calib_sosp6(140),calib_sosp7(140);
 
   // Declare variables that can be modified by launch file.
   std::string message;
@@ -184,7 +184,7 @@ int main(int argc, char **argv)
   // be run simultaneously while using different parameters.
   ros::NodeHandle private_node_handle_("~");
   private_node_handle_.param("message", message, std::string("NO error"));
-  private_node_handle_.param("rate", rate, int(400));
+  private_node_handle_.param("rate", rate, int(100));
   private_node_handle_.param("topic_imu", topic_imu, std::string("ADC/IMU"));
   private_node_handle_.param("range_imu", range_imu, int(3));
   private_node_handle_.param("enable_imu", enable_imu, bool(true));
@@ -369,7 +369,7 @@ int main(int argc, char **argv)
            count = 0;
         }
   
-    if ((enable_imu) && (count_range<370))
+    if ((enable_imu) && (count_range<90))
       {
         	for(int i=0 ; i<Chan_IMU; i++ )
         	{
@@ -568,7 +568,7 @@ int main(int argc, char **argv)
       
       
       
-    if ((enable_sosp) && (count_range<370))
+    if ((enable_sosp) && (count_range<90))
       {
 
          for(int i=10 ; i<10+Chan_sosp; i++ )
@@ -774,14 +774,14 @@ int main(int argc, char **argv)
       
     if (enable_range)
       {
-          if (count_range==370)
+          if (count_range==90)
           {
              DO_WriteLine(dio, 0,0, 0);
              usleep(50000);
           }
-          if (count_range>=370)
+          if (count_range>=90)
           {
-             if (count%10 == 0)
+             if (count%2 == 0)
              {
                 for(int i=6 ; i<Chan_range+6; i++ )
                 {
@@ -897,13 +897,13 @@ int main(int argc, char **argv)
              count_range ++;
              ROS_INFO("%i",count_range);
           }
-          if (count_range>=400)
+          if (count_range>=100)
           {
              count_range = 0; 
              DO_WriteLine(dio, 0,0,1); 
              usleep(10000);
           }
-          if (count_range<370)
+          if (count_range<90)
           {
              count_range ++;
           }
@@ -913,7 +913,7 @@ int main(int argc, char **argv)
       
       
       
-    if ((enable_imu_2) && (count_range<370))
+    if ((enable_imu_2) && (count_range<90))
       {
          for(int i=18 ; i<18+Chan_imu_2; i++ )
          {
@@ -1073,7 +1073,7 @@ int main(int argc, char **argv)
 
 	++count;
  
-    if (count>2000)
+    if (count>1000)
     {
         Startup=false;
         //for(int i=10 ; i<10+Chan_sosp; i++ )
