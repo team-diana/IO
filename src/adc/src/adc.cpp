@@ -161,7 +161,7 @@ int main(int argc, char **argv)
   // IMU message
   sensor_msgs::Imu imu,imu_2;
   sensor_msgs::Range range;
-  boost::circular_buffer<float> calibration0(140),calibration1(140),calibration2(140),calibration3(140),calibration4(140),calibration5(140),calibration6(140),calibration7(140),calibration8(140),range1(5),range2(5),range3(5),range4(5),pitch1(50),pitch2(50),pitch3(50),pitch4(10),x(10),y(10),z(10),ax(10),ay(10),az(10),ax2(10),ay2(10),az2(10),calib_sosp0(140),calib_sosp1(140),calib_sosp2(140),calib_sosp3(140),calib_sosp4(140),calib_sosp5(140),calib_sosp6(140),calib_sosp7(140);
+  boost::circular_buffer<float> calibration0(140),calibration1(140),calibration2(140),calibration3(140),calibration4(140),calibration5(140),calibration6(140),calibration7(140),calibration8(140),range1(5),range2(5),range3(5),range4(5),pitch1(50),pitch2(50),pitch3(50),pitch4(50),x(10),y(10),z(10),ax(10),ay(10),az(10),ax2(10),ay2(10),az2(10),calib_sosp0(140),calib_sosp1(140),calib_sosp2(140),calib_sosp3(140),calib_sosp4(140),calib_sosp5(140),calib_sosp6(140),calib_sosp7(140);
 
   // Declare variables that can be modified by launch file.
   std::string message;
