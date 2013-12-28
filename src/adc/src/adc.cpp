@@ -88,7 +88,7 @@ void updateImuState(sensor_msgs::Imu& imuMsg, I16 chan_data_raw, int i, boost::c
        double maxValue = 32768;
        double vRef = 5;
        double zeroRateV = cal_offset[i] /* 8340*/ * vRef / maxValue;
-       double sensitivity = 0.00333/(2*M_PI/360.0); //3.33mv/°/s  [V/rad/s]
+       double sensitivity = 0.00333/(2*M_PI/360.0); //3.33mv/ï¿½/s  [V/rad/s]
        angular_velocity = (chan_data_raw * vRef / maxValue - zeroRateV) / sensitivity;
     }
 
@@ -954,7 +954,7 @@ int main(int argc, char **argv)
                  }
                  cdata = total / ax2.size(); 
                }
-      			updateImuState(imu_2, cdata, i-16+6, calibration6);
+      			updateImuState(imu_2, cdata, i-18+6, calibration6);
       		  break;
       		  case 1:
               if (filter_imu)
@@ -978,7 +978,7 @@ int main(int argc, char **argv)
                  }
                  cdata = total / ay2.size(); 
                }
-      			updateImuState(imu_2, cdata, i-16+6, calibration7);
+      			updateImuState(imu_2, cdata, i-18+6, calibration7);
       		  break;
       		  case 2:
               if (filter_imu)
@@ -1002,7 +1002,7 @@ int main(int argc, char **argv)
                  }
                  cdata = total / az2.size(); 
                }
-      			updateImuState(imu_2, cdata, i-16+6, calibration8);
+      			updateImuState(imu_2, cdata, i-18+6, calibration8);
       		  break;
       		  }
          }
