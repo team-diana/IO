@@ -673,14 +673,14 @@ int main(int argc, char **argv)
                 }
                 else
                 {
-                    cal_offset[10]=21362;
-                    cal_offset[11]=23414;
-                    cal_offset[12]=20777;
-                    cal_offset[13]=21824;
-                    cal_offset[14]=21557;
-                    cal_offset[15]=22494;
-                    cal_offset[16]=20879;
-                    cal_offset[17]=22802;
+                    cal_offset[10]=21290;
+                    cal_offset[11]=23237;
+                    cal_offset[12]=20855;
+                    cal_offset[13]=22379;
+                    cal_offset[14]=21689;
+                    cal_offset[15]=22920;
+                    cal_offset[16]=20895;
+                    cal_offset[17]=23308;
                 }
               
                 double zeroRateV =  cal_offset[i] * vRef / maxValue;
@@ -1076,9 +1076,9 @@ int main(int argc, char **argv)
     if (count>1000)
     {
         Startup=false;
-        //for(int i=10 ; i<10+Chan_sosp; i++ )
-        //   ROS_INFO("%d  -  %f",i,cal_offset[i]);
-        //return(0);
+        /*for(int i=10 ; i<10+Chan_sosp; i++ )
+           ROS_INFO("%d  -  %f",i,cal_offset[i]);
+        return(0);*/
     }
     
     ros::spinOnce();
