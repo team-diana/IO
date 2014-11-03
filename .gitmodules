@@ -1,0 +1,12 @@
+[submodule "src/pr2_robot"]
+	path = src/pr2_robot
+	url = git@github.com:team-diana/io-pr2-robot.git
+[submodule "src/imu_filter_madgwick"]
+	path = src/imu_filter_madgwick
+	url = git@github.com:team-diana/io-imu-filter-madgwick.git
+[submodule "src/adc"]
+	path = src/adc
+	url = git@github.com:team-diana/io-adc.git
+[submodule "src/adc_msg_srv"]
+	path = src/adc_msg_srv
+	url = git@github.com:team-diana/io-adc-msg-srv.git
